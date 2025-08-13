@@ -456,15 +456,77 @@ body.dark .interest ul li {
   .profile_text h2 {
     letter-spacing: -1px;
   }
+}
 
-  /* 
-    body {
-        visibility: hidden;
-    }
-    #section-to-print {
-        visibility: visible;
-        position: absolute;
-        left: 0;
-        top: 0;
-    } */
+.accordion {
+  margin-bottom: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 10px;
+}
+
+body.dark .accordion {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+.accordion-header {
+  /* tira visual de botão */
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0; /* sem padding de container */
+  margin: 0;
+  width: 100%;
+
+  /* layout título + ícone */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordion-header .title2 {
+  margin: 0; /* gruda o título na borda superior */
+}
+
+.accordion-header .chevron {
+  font-size: 18px;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.chevron {
+  color: #3ef7ed;
+}
+
+/* gira o ícone quando aberto */
+.accordion-header[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+.accordion-header:focus-visible {
+  outline: 2px solid #3ef7ed;
+  outline-offset: 2px;
+}
+
+/* painel colapsável que empurra conteúdo para baixo */
+.accordion-panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+/* espaço do conteúdo interno quando aberto */
+.accordion-panel > *:first-child {
+  margin-top: 10px;
+}
+
+/* expande tudo */
+@media print {
+  .accordion-panel {
+    max-height: none !important;
+    overflow: visible !important;
+  }
 }
