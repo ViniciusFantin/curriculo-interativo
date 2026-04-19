@@ -32,9 +32,8 @@ function initAccordion() {
     const panelId = header.getAttribute("aria-controls");
     const panel = document.getElementById(panelId);
 
-    // iniciando "fechado"
-    header.setAttribute("aria-expanded", "false");
-    setPanelHeight(panel, false);
+    const isExpanded = header.getAttribute("aria-expanded") === "true";
+    setPanelHeight(panel, isExpanded);
 
     header.addEventListener("click", () => {
       const isExpanded = header.getAttribute("aria-expanded") === "true";
@@ -48,7 +47,7 @@ function initAccordion() {
       .querySelectorAll(".accordion-header[aria-expanded='true']")
       .forEach((header) => {
         const panel = document.getElementById(
-          header.getAttribute("aria-controls")
+          header.getAttribute("aria-controls"),
         );
         setPanelHeight(panel, true);
       });

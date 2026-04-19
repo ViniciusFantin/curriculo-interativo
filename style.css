@@ -518,6 +518,10 @@ body.dark .accordion {
   transition: max-height 0.3s ease;
 }
 
+.accordion-header[aria-expanded="true"] + .accordion-panel {
+  max-height: 1000px; /* ou um valor grande suficiente */
+}
+
 /* espaço do conteúdo interno quando aberto */
 .accordion-panel > *:first-child {
   margin-top: 10px;
